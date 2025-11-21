@@ -1,0 +1,147 @@
+/* ====================== AUTH PAGE STYLING ====================== */
+
+.auth-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;             
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+.auth-container {
+  display: flex;
+  background: #fff;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 1000px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Left side (logo) */
+.auth-left {
+  flex: 1;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.auth-logo {
+  width: 70%;
+  height: auto;
+  max-width: 400px;
+}
+
+/* Right side (form) */
+.auth-right {
+  flex: 1;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.auth-box {
+  width: 100%;
+  max-width: 400px;
+}
+
+.welcome-text {
+  font-weight: 400;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.auth-title {
+  color: #6A1B9A;
+  font-weight: 700;
+  font-size: 22px;
+  margin-bottom: 25px;
+}
+
+/* Form fields */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.auth-form label {
+  font-weight: 500;
+  font-size: 14px;
+  color: #333;
+}
+
+.auth-form input {
+  height: 38px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 0 10px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.auth-form input:focus {
+  border-color: #8735BC;
+}
+
+/* Button */
+.auth-btn {
+  background: #8735BC;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  height: 42px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.2s ease;
+}
+
+.auth-btn:hover {
+  background: #6A1B9A;
+}
+
+/* Footer Text */
+.auth-footer {
+  margin-top: 15px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.auth-link {
+  color: #FA1515;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.auth-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .auth-container {
+    flex-direction: column;
+    width: 95%;
+  }
+
+  .auth-left {
+    padding: 20px 10px;
+  }
+
+  .auth-logo {
+    width: 50%;
+  }
+
+  .auth-box {
+    max-width: 90%;
+  }
+}

@@ -1,0 +1,225 @@
+.jobdetails-container {
+  display: flex;
+  gap: 40px;
+  padding: 40px;
+  font-family: "Poppins", sans-serif;
+  justify-content: center;
+}
+
+/* LEFT MAIN CARD */
+.jobdetails-left-card {
+  width: 914px;
+  background: #fff;
+  padding: 40px;
+  border-radius: 50px;
+  box-shadow: 4px -4px 25px #00000040, -4px 4px 25px #00000040;
+}
+
+/* TITLE */
+.jobdetails-title {
+  font-size: 42px;
+  font-weight: 700;
+}
+
+/* META */
+.jobdetails-meta-row {
+  display: flex;
+  gap: 25px;
+  margin: 15px 0;
+  color: #555;
+  flex-wrap: wrap;
+}
+
+.jobdetails-badges {
+  display: flex;
+  gap: 15px;
+  margin: 15px 0;
+  flex-wrap: wrap;
+}
+
+.badge {
+  padding: 6px 15px;
+  border-radius: 12px;
+  font-size: 14px;
+}
+.badge.green { background: #d4ffd4; color: #008000; }
+.badge.red { background: #ffe6e6; color: #b30000; }
+
+.divider {
+  margin: 25px 0;
+  height: 2px;
+  background: #eee;
+}
+
+/* SECTION HEADERS */
+.jobdetails-section {
+  display: flex;
+  align-items: center;
+  margin: 25px 0 10px;
+}
+
+.number {
+  width: 32px;
+  height: 32px;
+  border: 2px solid #8735bc;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8735bc;
+  font-weight: bold;
+  margin-right: 12px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* TEXT */
+.jobdetails-text {
+  margin-bottom: 18px;
+  color: #444;
+  line-height: 1.7;
+}
+
+.jobdetails-list li {
+  margin-bottom: 10px;
+  color: #555;
+}
+
+/* RIGHT SIDE CARD */
+.jobdetails-right {
+  width: 437px;
+}
+
+.jobdetails-company-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 4px -4px 25px #00000040, -4px 4px 25px #00000040;
+}
+
+.company-logo {
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+.company-name {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.view-profile {
+  color: #8735bc;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.company-info p {
+  font-size: 15px;
+  margin: 6px 0;
+}
+
+/* ALL JOBS BUTTON */
+.all-jobs-btn {
+  width: 437px;
+  height: 87px;
+  margin-top: 25px;
+  border-radius: 50px;
+  background: #790ebe;
+  color: white;
+  font-size: 22px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  box-shadow: 4px -4px 25px #00000040, -4px 4px 25px #00000040;
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN
+============================================================ */
+
+/* -------- TABLET (max-width: 1200px) -------- */
+@media (max-width: 1200px) {
+  .jobdetails-container {
+    flex-wrap: wrap;
+    padding: 30px;
+  }
+
+  .jobdetails-left-card {
+    width: 100%;
+  }
+
+  .jobdetails-right {
+    width: 100%;
+  }
+
+  .all-jobs-btn {
+    width: 100%;
+  }
+}
+
+/* -------- MOBILE LARGE (max-width: 768px) -------- */
+@media (max-width: 768px) {
+  .jobdetails-title {
+    font-size: 32px;
+  }
+
+  .section-title {
+    font-size: 20px;
+  }
+
+  .jobdetails-left-card {
+    padding: 30px;
+    border-radius: 35px;
+  }
+
+  .jobdetails-company-card {
+    padding: 25px;
+    border-radius: 35px;
+  }
+
+  .company-logo {
+    height: 60px;
+  }
+
+  .all-jobs-btn {
+    height: 70px;
+    font-size: 20px;
+  }
+}
+
+/* -------- MOBILE SMALL (max-width: 480px) -------- */
+@media (max-width: 480px) {
+  .jobdetails-container {
+    padding: 15px;
+    gap: 20px;
+  }
+
+  .jobdetails-left-card,
+  .jobdetails-company-card {
+    padding: 20px;
+    border-radius: 25px;
+  }
+
+  .jobdetails-title {
+    font-size: 26px;
+  }
+
+  .jobdetails-meta-row p {
+    font-size: 13px;
+  }
+
+  .jobdetails-text,
+  .jobdetails-list li {
+    font-size: 14px;
+  }
+
+  .all-jobs-btn {
+    height: 60px;
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,196 @@
+/* ================== HOME PAGE NETWORKING & CLIENTS ================== */
+
+.home-sections {
+  font-family: "Poppins", sans-serif;
+  color: #000;
+  background: #fff;
+}
+
+/* ============ NETWORKING MAIN BLOCK ============ */
+.networking-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  margin: 60px auto;
+  padding: 40px;
+  border-radius: 30px;
+  box-shadow: 2px 2px 4px #00000040, -2px -2px 4px #00000040;
+  width: 90%;
+  max-width: 1100px;
+}
+
+.networking-left img {
+  width: 250px;
+  height: auto;
+}
+
+.networking-heading {
+  font-weight: 500;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.networking-list {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+}
+.networking-list li {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.know-more-btn {
+  background: #8735BC;
+  color: #fff;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+.know-more-btn:hover {
+  background: #6A1B9A;
+}
+
+/* ============ EXPANDABLE NETWORK CARDS ============ */
+.networking-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 50px auto;
+  width: 90%;
+  max-width: 1100px;
+}
+
+.network-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 2px 2px 4px #00000040, -2px -2px 4px #00000040;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.network-card:hover {
+  transform: translateY(-2px);
+}
+.network-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.network-card-header h3 {
+  flex: 1;
+  font-size: 20px;
+  font-weight: 600;
+  color: #000;
+  margin-left: 10px;
+}
+.expand-btn {
+  background: none;
+  border: none;
+  border-radius: 8px;
+  width: 58px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FF6C00;
+}
+.network-card-content {
+  margin-top: 15px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  white-space: pre-line;
+}
+
+/* ============ CLIENTS SECTION ============ */
+.clients-section {
+  text-align: center;
+  margin: 80px auto;
+  width: 90%;
+  max-width: 1250px;
+}
+
+.clients-title {
+  display: inline-block;
+  background: #FF6C00;
+  border-top-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+  padding: 10px 40px;
+  font-size: 30px;
+  font-weight: 700;
+  color: #fff;
+  border: 2px solid #FF6C00;
+  margin-bottom: 30px;
+}
+
+.clients-heading {
+  font-weight: 600;
+  font-size: 24px;
+  color: #000;
+  margin-bottom: 40px;
+}
+
+.clients-grid {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.client-card {
+  text-align: center;
+  border-radius: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.client-img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  box-shadow: 2px 2px 4px #00000040, -2px -2px 4px #00000040;
+}
+
+.stars {
+  color: #FFB400;
+  font-size: 22px;
+  margin: 8px 0;
+}
+
+.client-card h4 {
+  font-weight: 700;
+  font-size: 18px;
+  color: #000;
+  margin-bottom: 5px;
+}
+
+.client-card p {
+  font-weight: 500;
+  color: #333;
+  font-size: 15px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .networking-section {
+    flex-direction: column;
+    text-align: center;
+  }
+  .networking-left img {
+    width: 180px;
+  }
+  .clients-grid {
+    flex-direction: column;
+  }
+}
