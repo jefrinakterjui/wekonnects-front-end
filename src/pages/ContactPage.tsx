@@ -13,7 +13,7 @@ const Contact: React.FC = () => {
 
    const stats = [
     { id: 1, icon: <Mail size={40} />, label: "wekonnectsforu@gmail.com", value: "Mail Us" },
-    { id: 2, icon: <MapPin size={40} />, label: `Shop No : 226, 3rd Floor, 
+    { id: 2, icon: <MapPin size={40} />, label: `Shop No: 226, 3rd Floor, 
 Vasavi Pharma Complex, Gollapudi`, value: "Visit Us" },
     { id: 3, icon: <PhoneCall size={40} />, label: "+91 8500509249", value: "Calls Us" },
     

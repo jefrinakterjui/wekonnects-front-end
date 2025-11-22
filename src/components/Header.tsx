@@ -183,7 +183,7 @@
 
 
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link,NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 /* ---------- ScrollLink (unchanged) ---------- */
@@ -278,23 +278,36 @@ export default function Header() {
 
         {/* NAVIGATION - Desktop & Tablet */}
         <nav className="header-nav" aria-label="Primary navigation">
-          <Link className="nav-item nav-about" to="/about">
-            About Us
-          </Link>
-          <Link className="nav-item nav-about" to="/leadership">
+          <NavLink 
+              to="/about" 
+              className={({ isActive }) => 
+                isActive ? "nav-item nav-about active" : "nav-item nav-about"
+              }
+            >
+              About Us
+            </NavLink>
+                      <NavLink to="/leadership"  className={({ isActive }) => 
+                isActive ? "nav-item nav-about active" : "nav-item nav-about"
+              }>
             Leadership
-          </Link>
-          <Link className="nav-item nav-about" to="/contact">
+          </NavLink>
+          <NavLink  to="/contact"  className={({ isActive }) => 
+              isActive ? "nav-item nav-about active" : "nav-item nav-about"
+            }>
             Contact
-          </Link>
-          <Link className="nav-item nav-about" to="/businesscategories">
+          </NavLink>
+          <NavLink  className={({ isActive }) => 
+            isActive ? "nav-item nav-about active" : "nav-item nav-about"
+          } to="/businesscategories">
             Business
-          </Link>
+          </NavLink>
 
-          <Link className="nav-item nav-free" to="/free-listing">
+          <NavLink  className={({ isActive }) => 
+            isActive ? "nav-item nav-about active" : "nav-item nav-about"
+          } to="/free-listing">
             {/* <span className="free-pill">BUSINESS</span> */}
             <IconGrowth /> Jobs
-          </Link>
+          </NavLink>
 
           <button className="notify-btn" aria-label="Notifications">
             <IconBell />
@@ -371,8 +384,8 @@ export default function Header() {
               Business
             </Link>
 
-            <ScrollLink
-              to="#free-listing"
+            <Link
+              to="/free-listing"
               className="nav-item nav-free"
               onClick={() => setIsOpen(false)}
             >
@@ -381,7 +394,7 @@ export default function Header() {
                 <IconGrowth />
               </span>
               Jobs
-            </ScrollLink>
+            </Link>
 
             <Link
               to="/login"

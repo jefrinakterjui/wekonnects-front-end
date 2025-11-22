@@ -112,7 +112,7 @@ const handleSearch = () => {
         </p>
 
         {/* SEARCH BAR */}
-        <div className="search-wrapper">
+        <div className="search-wrapper-freelistings">
           <div className="search-item">
             <Search size={22} />
             <input type="text" placeholder="Search by keyword" />

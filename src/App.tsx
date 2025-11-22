@@ -92,7 +92,7 @@ function Layout() {
       <main
         className="container"
         style={{
-          padding: isAdminRoute ? "0" : "32px 0",
+          padding: isAdminRoute ? "0" : "32px 12px",
           minHeight: "80vh",
         }}
       >

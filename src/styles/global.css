@@ -78,12 +78,16 @@ body{
 }
 .header-inner {
   min-height: var(--header-h);
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  display: flex;
   align-items: center;
-  gap: 16px;
+  justify-content: space-between; /* This is key */
+  position: relative;
+  padding: 1rem 0;
 }
-
+/* Hide desktop nav on mobile */
+.header-nav {
+  display: none; /* hidden on mobile */
+}
 /* ---------- Logo ---------- */
 .header-logo {
   position: relative;
@@ -99,32 +103,86 @@ body{
 
 /* ---------- Navigation ---------- */
 .header-nav {
-  display: none;                     /* hidden by default (mobile) */
+  display: none; /* mobile hidden */
   align-items: center;
-  justify-content: center;
-  gap: 24px;
+  gap: 32px; /* consistent spacing between items */
 }
+
+@media (min-width: 1024px) {
+  .header-nav {
+    display: flex;
+  }
+}
+
+/* Nav items - natural width + beautiful hover */
 .nav-item {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  height: 30px;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1;
+  height: 40px; /* consistent height */
+  padding: 0 12px; /* breathing room */
+  font-size: 16px;
+  font-weight: 500;
   color: #000;
+  text-decoration: none;
   white-space: nowrap;
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
-/* Fixed widths (desktop only) */
-@media (min-width: 1024px) {
-  .nav-about     { width: 81px;  }
-  .nav-groups    { width: 161px; }
-  .nav-leads     { width: 87px;  }
-  .nav-advertise { width: 128px; }
-  .nav-free      { width: 145px; position: relative; }
+/* Hover background that perfectly fits content */
+.nav-item::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  background: linear-gradient(90deg, #7B2CB2 0%, #8735BC 100%);
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: -1;
 }
 
+.nav-item:hover::after,
+.nav-item:active::after {
+  opacity: 1;
+}
+
+/* Optional: Active/current page style */
+.nav-item.active {
+  color: #1777cc;
+  font-weight: 600;
+}
+
+.nav-item.active::after {
+  opacity: 1;
+  background: rgba(23, 119, 204, 0.15);
+}
+
+/* Special styling for Free Listing / Jobs button */
+.nav-free {
+  color: #1777cc;
+  font-weight: 600;
+}
+
+.nav-free:hover {
+  color: #0d5fa3;
+}
+
+/* Notification bell */
+.notify-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.notify-btn:hover {
+  background: rgba(23, 119, 204, 0.1);
+}
 /* Free-listing pill */
 .free-pill {
   position: absolute;
@@ -168,6 +226,38 @@ body{
 .header-cta:hover {
   transform: translateY(-1px);
   filter: brightness(1.05);
+}
+@media (min-width: 768px) {
+  .header-nav {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+  
+  .menu-toggle {
+    display: none; /* hide hamburger on desktop */
+  }
+  
+  .desktop-cta {
+    display: block;
+  }
+}
+@media (max-width: 767px) {
+  .header-logo {
+    flex-shrink: 0;
+  }
+
+  .header-right {
+    margin-left: auto; /* This pushes the hamburger to the far right */
+  }
+
+  .desktop-cta {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
 }
 
 /* Desktop-only CTA */
@@ -253,6 +343,7 @@ body{
   .header-inner {
     grid-template-columns: auto 1fr auto;
     gap: 12px;
+    padding:20px;
   }
   .header-logo { left: 0; }
   .desktop-cta { display: none; }
@@ -263,7 +354,7 @@ body{
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 42px; height: 42px;
+  width: 52px; height: 52px;
   border: 1px solid #e5e7eb;
   border-radius: var(--radius-10);
   background: #fff;
@@ -414,7 +505,7 @@ body{
   .mic-btn{margin-right:4px;}
 }
 @media (max-width:480px){
-  .hero-input{height:60px;padding:0 12px;}
+  .hero-input{height:60px;padding:0 1px;}
   .hero-input input{font-size:14px;}
   .search-btn{width:55px;height:60px;border-radius:8px;}
 }
@@ -546,27 +637,31 @@ body{
   scrollbar-width: thin;
 }
 
-/* LIMIT WIDTH ON MOBILE */
-@media (max-width: 768px) {
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
   .services-grid {
-    grid-template-columns: repeat(4, 90px);
-    gap: 12px;
-    justify-content: start;
-    width: max-content;
-    min-width: 100%; /* prevents shrink */
+    grid-template-columns: repeat(5, 100px);
+    gap: 20px;
+    justify-content: center;
   }
-
-  .services-wrapper {
-    overflow-x: auto;
-    /* Optional: hide scrollbar visually */
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  .services-wrapper::-webkit-scrollbar {
-    display: none;
+  .service-box {
+    width: 100px;
+    height: 104px;
   }
 }
 
+/* Desktop */
+@media (min-width: 1025px) {
+  .services-grid {
+    grid-template-columns: repeat(10, 103px);
+    gap: 20px;
+    justify-content: center;
+  }
+  .service-box {
+    width: 103px;
+    height: 107px;
+  }
+}
 /* Hide scrollbar on WebKit */
 /* .services-wrapper::-webkit-scrollbar {
   height: 8px;
@@ -639,14 +734,40 @@ body{
   }
 }
 
+/* ========================= MOBILE FIX ONLY ========================= */
 @media (max-width: 768px) {
-  .services-grid {
-    grid-template-columns: repeat(4, 90px);
-    gap: 12px;
+  .services-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 0 16px 20px 16px; /* Add safe side padding */
   }
+
+  .services-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 78px);   /* Reduced from 90px → fits perfectly */
+    gap: 14px;                                /* Slightly reduced gap */
+    justify-content: center;                 /* Center the grid */
+    width: 100% !important;                   /* Force full width usage */
+    max-width: 100vw;
+    padding: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
   .service-box {
-    width: 90px;
-    height: 95px;
+    width: 78px !important;
+    height: 82px !important;
+    flex-shrink: 0;
+  }
+
+  .service-box img {
+    width: 58%;
   }
 }
 
@@ -1009,7 +1130,7 @@ body{
   grid-template-columns: 1.6fr repeat(5, 1fr);
   gap: 24px;
   align-items: start;
-  padding: 50px 0;
+  padding: 50px 12px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 .footer-brand {
