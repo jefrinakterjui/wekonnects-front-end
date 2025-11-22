@@ -187,32 +187,32 @@ import { Link,NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 /* ---------- ScrollLink (unchanged) ---------- */
-function ScrollLink({
-  to,
-  children,
-  className,
-  onClick,
-  ...props
-}: {
-  to: string;
-  children: React.ReactNode;
-  className?: string;
-  onClick?: () => void;
-}) {
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    const element = document.querySelector(to);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-    onClick?.();
-  };
-  return (
-    <Link to={to} className={className} onClick={handleClick} {...props}>
-      {children}
-    </Link>
-  );
-}
+// function ScrollLink({
+//   to,
+//   children,
+//   className,
+//   onClick,
+//   ...props
+// }: {
+//   to: string;
+//   children: React.ReactNode;
+//   className?: string;
+//   onClick?: () => void;
+// }) {
+//   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+//     e.preventDefault();
+//     const element = document.querySelector(to);
+//     if (element) {
+//       element.scrollIntoView({ behavior: "smooth" });
+//     }
+//     onClick?.();
+//   };
+//   return (
+//     <Link to={to} className={className} onClick={handleClick} {...props}>
+//       {children}
+//     </Link>
+//   );
+// }
 
 /* ---------- Icons ---------- */
 function IconGrowth() {
