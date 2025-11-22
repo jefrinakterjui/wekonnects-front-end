@@ -278,9 +278,6 @@ export default function Header() {
 
         {/* NAVIGATION - Desktop & Tablet */}
         <nav className="header-nav" aria-label="Primary navigation">
-          <Link className="nav-item" to="/home">
-            Home
-          </Link>
           <Link className="nav-item nav-about" to="/about">
             About Us
           </Link>

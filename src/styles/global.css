@@ -298,7 +298,7 @@ body{
 .hero-title {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
-  font-size: 32px;
+  font-size: 22px;
   line-height: 100%;
   letter-spacing: 0.05em;
   color: #000;
@@ -324,7 +324,7 @@ body{
   border: 3px solid #484848;
   border-radius: 10px;
   padding: 0 20px;
-  height: 85px;
+  height: 62px;
   box-shadow: 2px 2px 3px #00000040, -1px -1px 3px #00000040;
 }
 
@@ -382,14 +382,14 @@ body{
 .hero-input{
   display:flex;align-items:center;gap:10px;
   background:#fff;border:3px solid #484848;border-radius:10px;
-  padding:0 20px;height:85px;
+  padding:0 13px; height: 70px;
   box-shadow:2px 2px 3px #00000040,-1px -1px 3px #00000040;
 }
 .hero-input input{
   flex:1;font-family:"Poppins",sans-serif;font-size:16px;
   border:none;outline:none;background:transparent;
 }
-.location-box{width:450px;}
+.location-box{width:490px;}
 .search-box{width:806px;}
 .mic-btn,.search-btn{
   background:transparent;border:none;cursor:pointer;
@@ -404,11 +404,11 @@ body{
 @media (max-width:1024px){
   .hero-search{flex-direction:column;align-items:stretch;gap:16px;}
   .location-box,.search-box{width:100% !important;}
-  .hero-input{height:75px;padding:0 16px;}
+  .hero-input{height:65px;padding:0 10px;}
   .search-btn{width:75px;height:75px;border-radius:0 8px 8px 0;}
 }
 @media (max-width:768px){
-  .hero-input{height:70px;padding:0 14px;}
+  .hero-input{height:60px;padding:0 14px;}
   .hero-input input{font-size:15px;}
   .search-btn{width:65px;height:70px;}
   .mic-btn{margin-right:4px;}

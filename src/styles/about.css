@@ -19,8 +19,10 @@
 }
 
 .hero-banner-container {
-  width: 1274px;
-  height: 483px;
+  width: 100%;
+  max-width: 1274px;
+  height: auto; 
+  min-height: 483px;
   border-radius: 15px;
   border: 1px solid #CAA4A4;
   box-shadow: 2px 1px 4px 0px rgba(0, 0, 0, 0.25);
@@ -83,7 +85,9 @@
 }
 
 .about-description {
-  width: 1122px;
+  width: 100%;
+  max-width: 1122px;
+  padding: 0 20px;
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
   font-size: 38px;
