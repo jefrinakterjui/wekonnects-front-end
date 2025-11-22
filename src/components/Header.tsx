@@ -368,9 +368,6 @@ export default function Header() {
           </div>
 
           <nav className="drawer-links" aria-label="Mobile navigation">
-            <Link to="/home" onClick={() => setIsOpen(false)}>
-              Home
-            </Link>
             <Link to="/about" onClick={() => setIsOpen(false)}>
               About Us
             </Link>
