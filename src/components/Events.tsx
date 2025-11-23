@@ -1,14 +1,12 @@
 import event1 from "../assets/event1.jpg";
-import event2 from "../assets/event1.jpg";
-import event3 from "../assets/event1.jpg";
-import event4 from "../assets/event1.jpg"; 
+
 
 export default function Events() {
   const events = [
     { id: 1, image: event1, time: "7:30 AM", place: "Vijayawada" },
-    { id: 2, image: event2, time: "7:30 AM", place: "Vijayawada" },
-    { id: 3, image: event3, time: "7:30 AM", place: "Vijayawada" },
-    { id: 4, image: event4, time: "7:30 AM", place: "Vijayawada" },
+    { id: 2, image: event1, time: "7:30 AM", place: "Vijayawada" },
+    { id: 3, image: event1, time: "7:30 AM", place: "Vijayawada" },
+    { id: 4, image: event1, time: "7:30 AM", place: "Vijayawada" },
   ];
 
   return (
@@ -21,19 +19,25 @@ export default function Events() {
             <div key={event.id} className="event-card">
               <img src={event.image} alt={event.place} className="event-image" />
 
-              <div className="event-footer">
-                <div className="event-info">
-                  <div className="event-time">
-                    <span>22</span>
-                    <small>JUN</small>
-                    <p>{event.time}</p>
-                  </div>
+             <div className="event-footer">
+  <div className="event-row">
+    {/* DATE CIRCLE */}
+    <div className="date-circle">
+      <span className="day">22</span>
+      <span className="month">JUN</span>
+    </div>
 
-                  <p className="event-place">{event.place}</p>
+    {/* TIME PILL */}
+    <div className="time-pill">{event.time}</div>
 
-                  <button className="event-btn">Book Seats</button>
-                </div>
-              </div>
+    {/* PLACE CAPSULE WITH INNER BUTTON */}
+    <div className="place-pill">
+      <span className="place-text">{event.place}</span>
+      <button className="book-btn">Book Seats</button>
+    </div>
+  </div>
+</div>
+
             </div>
           ))}
         </div>
