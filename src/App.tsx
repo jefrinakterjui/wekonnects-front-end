@@ -41,6 +41,11 @@ import UserAddBusiness from "./pages/UserDashboard/UserAddBusiness";
 import { Toaster } from 'react-hot-toast';
 import JobResults from "./pages/JobResults";
 import JobDetails from "./pages/JobDetails";
+import LinksManagement from "./pages/UserDashboard/LinksManagement";
+import CreateNewDeal from "./pages/UserDashboard/CreateNewDeal";
+import RatingsAndReviews from "./pages/UserDashboard/RatingsAndReviews";
+import DealRating from "./pages/UserDashboard/DealRating";
+import DealsManagement from "./pages/UserDashboard/DealsManagement";
 
 function Layout() {
   const location = useLocation();
@@ -166,8 +171,13 @@ function Layout() {
           >
             <Route path="dashboard" element={<UserDashboardPage />} />
             <Route path="my-business/add" element={<UserAddBusiness/>} />
-           
-           
+           <Route path="links/all" element={<LinksManagement/>} />
+            <Route path="deals/all" element={<DealsManagement/>} />
+
+           <Route path="deal/new" element={<CreateNewDeal/>} />
+           <Route path="deal/rating" element={<DealRating/>} />
+
+           <Route path="rating-review" element={<RatingsAndReviews/>} />
           </Route>
         </Routes>
       </main>

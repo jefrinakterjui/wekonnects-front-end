@@ -27,7 +27,7 @@ const UserAddBusiness: React.FC = () => {
     ownerName: "",
     ownerMobile: "",
     dob: "",
-    categoryId: "",           // ← changed from "category" to "categoryId"
+    categoryId: "",      
     subCategory: "",
     businessHours: "",
     businessType: "",
