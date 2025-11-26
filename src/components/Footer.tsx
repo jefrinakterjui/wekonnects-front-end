@@ -41,7 +41,7 @@ export default function Footer() {
         </div>
 
         {/* === Major Cities Columns === */}
-        {[1, 2, 3, 4, 5].map((col) => (
+        {/* {[1, 2, 3, 4, 5].map((col) => (
           <div key={col} className="footer-cities">
             <h4>Major Cities</h4>
             <ul>
@@ -62,7 +62,7 @@ export default function Footer() {
               {col === 5 ? <li className="view-all">View All</li> : <li>Hyderabad</li>}
             </ul>
           </div>
-        ))}
+        ))} */}
       </div>
 
       {/* === Support / Payment / Apps Section === */}
