@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState, useEffect } from "react";
 import { getAllCities } from "../../api/api"; // adjust path
 import "../../components/layout/layout.css";

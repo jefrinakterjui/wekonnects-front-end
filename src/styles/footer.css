@@ -1,0 +1,182 @@
+.site-footer {
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(180deg, #FDFBF7 0%, #E6E6FA 40%, #7B61FF 100%);
+  padding-top: 40px;
+  color: #333;
+}
+
+/* .container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+} */
+
+.footer-header {
+  margin-bottom: 30px;
+}
+
+.footer-logo {
+  width: 180px;
+  margin-bottom: 15px;
+}
+
+.footer-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555;
+  max-width: 800px;
+}
+
+.footer-main-row {
+  display: flex;
+  gap: 40px;
+  padding-bottom: 40px;
+}
+
+.company-col {
+  min-width: 200px;
+}
+
+.company-col h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #000;
+}
+
+.company-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.company-col li {
+  margin-bottom: 8px;
+}
+
+.company-col a {
+  text-decoration: none;
+  color: #444;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.company-col a:hover {
+  color: #8735bc;
+}
+
+.footer-cities-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px 20px;
+  align-content: start;
+}
+
+.cities-heading {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.city-link {
+  display: block;
+  text-decoration: none;
+  color: #444;
+  font-size: 14px;
+  padding: 2px 0;
+}
+
+.city-link:hover {
+  color: #8735bc;
+}
+
+.view-all {
+  color: #2E00F9;
+  font-weight: 600;
+}
+
+.footer-bottom-bar {
+  background-color: rgba(0, 0, 0, 0.1); 
+  padding: 20px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-bottom-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-support-group {
+  display: flex;
+  gap: 40px;
+}
+
+.support-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.support-item img {
+  width: 32px;
+  height: 32px;
+}
+
+.support-item h5 {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0;
+  color: #000;
+}
+
+.support-item p {
+  font-size: 12px;
+  margin: 0;
+  color: #333;
+}
+
+.footer-badges {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-badges img {
+  height: 40px;
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .footer-main-row {
+    flex-direction: column;
+  }
+  
+  .footer-cities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .cities-heading:not(:first-child) {
+    display: none;
+  }
+  .cities-heading:first-child {
+    grid-column: 1 / -1;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-bottom-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .footer-support-group {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
