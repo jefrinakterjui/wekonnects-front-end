@@ -1,20 +1,14 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from "axios";
 
-// const API_BASE_URL = "https://wekonnects.vercel.app/api/v1" ;
-const API_BASE_URL = "https://api.wekonnects.com/api/v1";
-// const API_BASE_URL = "http://localhost:5000/api/v1" ;
+const API_BASE_URL = "https://api.wekonnects.com/api/v1"; 
+// const API_BASE_URL = "http://localhost:5000/api/v1";
 
-// ---------- AXIOS BASE INSTANCE ----------
 const api = axios.create({
   baseURL: API_BASE_URL,
   withCredentials: true,
-  // headers: {
-
-  //   "Content-Type": "application/json",
-  // },
 });
 
-// ---------- TOKEN HELPER ----------
 export const getToken = () => localStorage.getItem("token");
 
 api.interceptors.request.use((config) => {
@@ -25,73 +19,70 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-// ---------- CENTRAL API METHODS ----------
 export const apiGet = (url: string) => api.get(url);
 export const apiPost = (url: string, data: any) => api.post(url, data);
 export const apiPatch = (url: string, data: any) => api.patch(url, data);
 export const apiDelete = (url: string) => api.delete(url);
 
-// ---------- AUTH APIS ----------
+// ---------- AUTH ----------
 export const loginUser = (data: { email: string; password: string }) =>
   apiPost("/auth/login", data);
-
 export const registerUser = (data: any) => apiPost("/auth/register", data);
-
-export const getDashboardStats = () => apiGet("dashboard/admin-stats");
-
+export const logoutUser = () => apiPost("/auth/logout", {});
 export const fetchMyProfile = () => apiGet("/users/me");
 
-export const logoutUser = () => apiPost("/auth/logout", {});
+// ---------- DASHBOARD ----------
+export const getDashboardStats = () => apiGet("/dashboard/admin-stats");
 
-// ---------- CATEGORY APIS ----------
+// ---------- USERS ----------
+export const getAllUsers = () => apiGet("/users/all-users");
+export const updateUserStatus = (id: string, data: any) =>
+  apiPatch(`/users/${id}`, data); // Route fixed based on backend
+
+// ---------- CATEGORIES ----------
 export const getAllCategories = () => apiGet("/categories");
-
-export const createCategory = (data: FormData) => {
-  return api.post("/categories/create", data);
-};
+export const createCategory = (data: FormData) =>
+  api.post("/categories", data); // Route fixed
 export const updateCategory = (id: string, data: any) =>
   apiPatch(`/categories/${id}`, data);
 
-// ---------- USERS (ADMIN) ----------
-export const getAllUsers = () => apiGet("/users/all-users");
-// UPDATE user status
-export const updateUserStatus = (id: string, data: any) =>
-  apiPatch(`/users/update-user/${id}`, data);
-// ---------- STATE APIS ----------
-export const createState = (data: any) => apiPost("/states/create", data);
+// ---------- LOCATIONS ----------
+export const createState = (data: any) => apiPost("/states", data); // Route fixed
 export const getStates = () => apiGet("/states");
-// export const getStates = () => apiGet("/states");
-export const updateState = (id: string, data: any) =>
-  apiPatch(`/states/${id}`, data);
-
-// ---------- CITY APIS ----------
-export const createCity = (data: any) => apiPost("/cities", data);
+export const createCity = (data: any) => apiPost("/cities", data); // Route fixed
 export const getAllCities = () => apiGet("/cities");
 export const getCities = (stateId: string) =>
   apiGet(`/cities?stateId=${stateId}`);
 
-// ---------- BUSINESS APIS ----------
+// ---------- BUSINESS ----------
 export const createBusiness = (data: any) => apiPost("/business", data);
-// ---------- BUSINESS APIS ADMIN----------
 export const getPendingBusinessList = () => apiGet("/business/pending");
 export const getAllAprrovedBusinessList = () => apiGet("/business");
-
 export const approveOrRejectBusiness = (
   id: string,
   data: { status: "approved" | "rejected" }
 ) => apiPatch(`/business/${id}/status`, data);
+
 // ---------- EVENTS ----------
 export const createEvent = (data: any) => apiPost("/events", data);
+export const getAllEvents = () => apiGet("/events");
 
 // ---------- GROUPS ----------
-export const createGroup = (data: any) => apiPost("/groups/create", data);
+export const createGroup = (data: any) => apiPost("/groups", data); // Route fixed
 export const getGroups = () => apiGet("/groups");
 export const UpdateGroup = (id: string, data: any) =>
   apiPatch(`/groups/${id}`, data);
 export const deleteGroup = (id: string) => apiDelete(`/groups/${id}`);
 
-// ---------- JOBS ----------
+// ---------- COMPANY PROFILE ----------
+export const createCompanyProfile = (data: any) => apiPost("/company-profiles", data);
+export const getAllCompanyProfiles = () => apiGet("/company-profiles");
 
-export const createJob = (data: any) => apiPost("/jobs/create", data); //admin create job
+// ---------- JOBS ----------
+export const createJob = (data: any) => apiPost("/jobs", data); // Route fixed
+export const getAllJobs = () => apiGet("/jobs");
+export const getJobApplications = () => apiGet("/job-applications"); // Admin Only
+export const updateApplicationStatus = (id: string, status: string) =>
+  apiPatch(`/job-applications/${id}/status`, { status });
 
 export default api;

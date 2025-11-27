@@ -1,85 +1,84 @@
-import React, { useState } from "react";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import React, { useState, useEffect } from "react";
 import "../../components/layout/layout.css";
 import { MoreVertical } from "lucide-react";
+import toast from "react-hot-toast";
+import { getJobApplications } from "../../api/api";
 
-interface JobData {
-  id: string;
-  date: string;
-  company: string;
-  role: string;
+interface JobApplication {
+  _id: string;
+  jobId: { jobName: string; companyId?: { businessName?: string; companyName?: string } };
+  applicantName: string;
+  applicantEmail: string;
+  applicantPhone: string;
   status: string;
+  createdAt: string;
 }
 
 const ApplyJobsList: React.FC = () => {
-  const [currentPage, setCurrentPage] = useState(3);
+  const [applications, setApplications] = useState<JobApplication[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  // Static data for now
-  const jobs: JobData[] = [
-    { id: "#004562", date: "26 March 2024, 12:42 AM", company: "Harikrishna", role: "9999999999", status: "Vijayawada" },
-    { id: "#004562", date: "26 March 2024, 12:42 AM", company: "Harikrishna", role: "9999999999", status: "Vijayawada" },
-    { id: "#00456", date: "26 March 2024, 01:42 PM", company: "Harikrishna", role: "9999999999", status: "Vijayawada" },
-    { id: "#00456", date: "26 March 2024, 01:42 PM", company: "Harikrishna", role: "9999999999", status: "Vijayawada" },
-    { id: "#004561", date: "26 March 2024, 12:42 AM", company: "Harikrishna", role: "9999999999", status: "Vijayawada" },
-    { id: "#00451", date: "26 March 2024, 12:42 AM", company: "Harikrishna", role: "9999999999", status: "Vijayawada" },
-    { id: "#00451", date: "26 March 2024, 12:42 AM", company: "Harikrishna", role: "9999999999", status: "Vijayawada" },
-    { id: "#00459", date: "26 March 2024, 12:42 AM", company: "Harikrishna", role: "9999999999", status: "Vijayawada" },
-    { id: "#00458", date: "26 March 2024, 12:42 AM", company: "Harikrishna", role: "9999999999", status: "Vijayawada" },
-    { id: "#00457", date: "26 March 2024, 02:12 AM", company: "Harikrishna", role: "9999999999", status: "Vijayawada" },
-  ];
+  useEffect(() => {
+    const fetchApplications = async () => {
+      try {
+        const res = await getJobApplications();
+        setApplications(res.data?.data || []);
+      } catch (error) {
+        toast.error("Failed to fetch applications");
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchApplications();
+  }, []);
+
+  if (loading) return <div className="dashboard-content"><p>Loading...</p></div>;
 
   return (
     <div className="dashboard-content">
       <h1 className="page-title">Apply Jobs List</h1>
 
-      {/* ===== TABLE CONTAINER ===== */}
       <div className="applyjobs-table">
         <table>
           <thead>
             <tr>
-              <th>Job Id</th>
-              <th>Apply Date</th>
-              <th>Company Name</th>
               <th>Job Role</th>
+              <th>Company</th>
+              <th>Applicant Name</th>
+              <th>Apply Date</th>
               <th>Status</th>
               <th>View</th>
             </tr>
           </thead>
           <tbody>
-            {jobs.map((job, index) => (
-              <tr
-                key={job.id + index}
-                className={ ""}
-              >
-                <td>{job.id}</td>
-                <td>{job.date}</td>
-                <td>{job.company}</td>
-                <td>{job.role}</td>
-                <td>{job.status}</td>
-                <td className="view-icon">
-                  <MoreVertical size={18} />
-                </td>
-              </tr>
-            ))}
+            {applications.length === 0 ? (
+               <tr><td colSpan={6} style={{textAlign: 'center'}}>No applications found</td></tr>
+            ) : (
+              applications.map((app) => (
+                <tr key={app._id}>
+                  <td>{app.jobId?.jobName || "N/A"}</td>
+                  <td>{app.jobId?.companyId?.businessName || app.jobId?.companyId?.companyName || "N/A"}</td>
+                  <td>{app.applicantName}</td>
+                  <td>{new Date(app.createdAt).toLocaleDateString()}</td>
+                  <td>
+                      <span style={{ 
+                          padding: '4px 8px', 
+                          borderRadius: '4px', 
+                          backgroundColor: app.status === 'pending' ? '#fff3cd' : '#d4edda',
+                          color: app.status === 'pending' ? '#856404' : '#155724'
+                      }}>
+                        {app.status}
+                      </span>
+                  </td>
+                  <td className="view-icon">
+                    <MoreVertical size={18} />
+                  </td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
-
-        {/* ===== PAGINATION ===== */}
-        <div className="pagination-container">
-          <button className="pagination-btn prev">⟪ Previous</button>
-          <div className="pagination-numbers">
-            {[1, 2, 3, 4].map((num) => (
-              <button
-                key={num}
-                className={`page-num ${num === currentPage ? "active" : ""}`}
-                onClick={() => setCurrentPage(num)}
-              >
-                {num}
-              </button>
-            ))}
-          </div>
-          <button className="pagination-btn next">Next ⟫</button>
-        </div>
-        <p className="pagination-info">Showing 10 from 46 data</p>
       </div>
     </div>
   );
