@@ -252,35 +252,7 @@ const AdminSidebar: React.FC = () => {
             )}
           </div>
 
-          {/* Inquiries */}
-          <div className="nav-group">
-            <div className="nav-item" onClick={() => toggleMenu("Inquiries")}>
-              <HelpCircle size={20} />
-              <span>My Inquiries</span>
-              <ChevronDown className={`chevron ${openMenus.includes("Inquiries") ? "rotated" : ""}`} />
-            </div>
 
-            {openMenus.includes("Inquiries") && (
-              <div className="sub-menu">
-                <NavLink to="/admin/inquiries" className={({ isActive }) => (isActive ? "sub-active" : "")} >
-                  List of Inquiries
-                </NavLink>
-              </div>
-            )}
-          </div>
-            {/* Premium Leads */}
-            <div className="nav-group">
-              <div className="nav-item" onClick={() => toggleMenu("Premium Leads")}>
-                <Users size={22} />
-                <span>Premium Leads</span>
-                <ChevronDown className={`chevron ${openMenus.includes("Premium Leads") ? "rotated" : ""}`} />
-              </div>
-              {openMenus.includes("Premium Leads") && (
-                <div className="sub-menu">
-                  <NavLink to="/admin/leads" onClick={() => setSidebarOpen(false)}>Total Leads</NavLink>
-                </div>
-              )}
-            </div>
 
 
             <div className="nav-group">

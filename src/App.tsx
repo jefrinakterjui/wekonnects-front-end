@@ -46,6 +46,8 @@ import CreateNewDeal from "./pages/UserDashboard/CreateNewDeal";
 import RatingsAndReviews from "./pages/UserDashboard/RatingsAndReviews";
 import DealRating from "./pages/UserDashboard/DealRating";
 import DealsManagement from "./pages/UserDashboard/DealsManagement";
+import EventsList from "./pages/AdminDashboard/EventsList";
+import JobsList from "./pages/AdminDashboard/JobsList";
 
 function Layout() {
   const location = useLocation();
@@ -143,6 +145,7 @@ function Layout() {
             <Route path="jobs/apply-list" element={<ApplyJobsList />} />
             <Route path="jobs/profile" element={<CreateProfile />} />
             <Route path="jobs/post" element={<PostJob />} />
+            <Route path="jobs/list" element={<JobsList/>} />
             <Route path="users" element={<UsersList />} />
             <Route path="categories" element={<CategoriesList />} />
             <Route path="categories/add" element={<AddCategory />} />
@@ -152,7 +155,7 @@ function Layout() {
             <Route path="business/list" element={<BusinessList />} />
             <Route path="business/expire-listings" element={<BusinessList />} />
             <Route path="events/create-event" element={<CreateEvent />} />
-            <Route path="events/list" element={<CreateEvent />} />
+            <Route path="events/list" element={<EventsList />} />
             <Route path="locations/create-states" element={<CreateState />} />
             <Route path="locations/states-list" element={<StatesList />} />
             <Route path="locations/create-cities" element={<CreateCity />} />

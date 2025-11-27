@@ -66,6 +66,7 @@ export const approveOrRejectBusiness = (
 // ---------- EVENTS ----------
 export const createEvent = (data: any) => apiPost("/events", data);
 export const getAllEvents = () => apiGet("/events");
+export const deleteEvent = (id: string) => apiDelete(`/events/${id}`);
 
 // ---------- GROUPS ----------
 export const createGroup = (data: any) => apiPost("/groups", data); // Route fixed
@@ -84,5 +85,9 @@ export const getAllJobs = () => apiGet("/jobs");
 export const getJobApplications = () => apiGet("/job-applications"); // Admin Only
 export const updateApplicationStatus = (id: string, status: string) =>
   apiPatch(`/job-applications/${id}/status`, { status });
+//--jobs  list admin----
+export const getAllJobsList = () => apiGet("/jobs");
+export const updateJob = (id: string, data: any) => apiPatch(`/jobs/${id}`, data);
+export const deleteJob = (id: string) => apiDelete(`/jobs/${id}`);
 
 export default api;

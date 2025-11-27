@@ -76,11 +76,13 @@ export default function LoginPage() {
 
       const token = res.data?.data?.accessToken;
       const role = res.data?.data?.user.role;
+      
 
       toast.success("Login successful! Welcome back 👋", { id: loadingToast });
 
       localStorage.setItem("token", token);
       localStorage.setItem("userRole", role);
+      localStorage.setItem("Name",res.data?.data?.user.name);
 
       if (role === "admin") {
         navigate("/admin/dashboard");
